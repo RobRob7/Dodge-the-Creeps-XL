@@ -29,6 +29,9 @@ func initialize(start_position, player_position):
 	
 	# rotate velocity vector based on mob's Y rotation
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
+	
+	# randomly speed up mob animation
+	$AnimationPlayer.speed_scale = random_speed / min_speed
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	queue_free()

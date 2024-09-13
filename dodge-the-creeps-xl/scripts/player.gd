@@ -31,12 +31,17 @@ func _physics_process(delta: float) -> void:
 		direction.z += 1
 	if Input.is_action_pressed("move_forward"):
 		direction.z -= 1
-		
+	
+	# check for player moving
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		# basis property affects the rotation of the node
 		$Pivot.basis = Basis.looking_at(direction)
-	
+		$AnimationPlayer.speed_scale = 4
+	# check for player not moving
+	else:
+		$AnimationPlayer.speed_scale = 1
+		
 	# ground velocity
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
@@ -77,6 +82,9 @@ func _physics_process(delta: float) -> void:
 	# move character
 	velocity = target_velocity
 	move_and_slide()
+	
+	# make player arc when jumping
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 # will be called when player dies
 func die():

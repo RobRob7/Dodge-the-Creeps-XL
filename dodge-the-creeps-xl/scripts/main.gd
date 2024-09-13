@@ -2,6 +2,9 @@ extends Node
 
 @export var mob_scene: PackedScene
 
+func _ready() -> void:
+	$UserInterface/Retry.hide()
+
 func _on_mob_timer_timeout() -> void:
 	
 	# create new instance of Mob scene
@@ -24,7 +27,18 @@ func _on_mob_timer_timeout() -> void:
 	
 	# spawn the mob in main scene
 	add_child(mob)
+	
+	# connect the mob to the score label to update the score upon squashing one
+	mob.squashed.connect($UserInterface/ScoreLabel._on_mob_squashed.bind())
 
 # is called when player is hit by mob
 func _on_player_hit() -> void:
 	$MobTimer.stop()
+	$UserInterface/Retry.show()
+
+# is called when any input is pressed
+func _unhandled_input(event: InputEvent) -> void:
+	
+	# only reset when button pressed and the retry option is visible on UI
+	if event.is_action_pressed("enter") and $UserInterface/Retry.visible:
+		get_tree().reload_current_scene()
