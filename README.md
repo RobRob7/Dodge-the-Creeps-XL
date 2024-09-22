@@ -8,3 +8,5 @@ Implemented:
 - audio cues
 - main menu
 - how to play menu
+
+Link to game: https://robrob7.github.io/Dodge-the-Creeps-XL/pages/gameHTML/index.html
