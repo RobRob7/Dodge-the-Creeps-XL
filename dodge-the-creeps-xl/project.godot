@@ -80,3 +80,8 @@ enter={
 3d_physics/layer_2="enemies"
 3d_physics/layer_3="world"
 3d_physics/layer_4="bounds"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
