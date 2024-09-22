@@ -5,7 +5,9 @@ extends Node
 # path to .ini file
 var save_path := "user://player_score.ini"
 
+# run once
 func _ready() -> void:
+	
 	# check if ini file already present
 	if(FileAccess.file_exists(Global.save_path)):
 		print("File Found")
