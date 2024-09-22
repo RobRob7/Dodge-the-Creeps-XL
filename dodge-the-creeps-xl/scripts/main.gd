@@ -3,7 +3,7 @@ extends Node
 @export var mob_scene: PackedScene
 
 # path to .ini file
-var save_path := "user://player_score.ini"
+var save_path := "res://player_score.ini"
 
 # run once
 func _ready() -> void:

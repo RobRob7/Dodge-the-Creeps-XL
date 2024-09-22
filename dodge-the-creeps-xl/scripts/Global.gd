@@ -1,7 +1,7 @@
 extends Node
 
 # path to .ini file
-var save_path := "user://player_score.ini"
+var save_path := "res://player_score.ini"
 
 # current points when playing
 var points = 0
