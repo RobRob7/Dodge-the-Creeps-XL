@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b71ilo00bartu"]
+[gd_scene load_steps=17 format=3 uid="uid://b71ilo00bartu"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2wups"]
 [ext_resource type="PackedScene" uid="uid://du4vwyedmq34w" path="res://scenes/player.tscn" id="1_b7syg"]
@@ -41,55 +41,6 @@ point_count = 5
 [sub_resource type="Theme" id="Theme_mky7e"]
 default_font = ExtResource("4_1ryb0")
 default_font_size = 30
-
-[sub_resource type="FontFile" id="FontFile_bpr4w"]
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/20/0/ascent = 0.0
-cache/0/20/0/descent = 0.0
-cache/0/20/0/underline_position = 0.0
-cache/0/20/0/underline_thickness = 0.0
-cache/0/20/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-cache/0/35/0/ascent = 0.0
-cache/0/35/0/descent = 0.0
-cache/0/35/0/underline_position = 0.0
-cache/0/35/0/underline_thickness = 0.0
-cache/0/35/0/scale = 1.0
-
-[sub_resource type="FontFile" id="FontFile_6wxhg"]
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
-cache/0/35/0/ascent = 0.0
-cache/0/35/0/descent = 0.0
-cache/0/35/0/underline_position = 0.0
-cache/0/35/0/underline_thickness = 0.0
-cache/0/35/0/scale = 1.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_2wups")
@@ -183,18 +134,9 @@ offset_top = 16.0
 offset_right = 138.0
 offset_bottom = 63.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_bpr4w")
 theme_override_font_sizes/font_size = 35
 text = "Score: 0"
 script = ExtResource("5_d84xw")
-
-[node name="Label" type="Label" parent="UserInterface"]
-layout_mode = 0
-offset_left = 456.0
-offset_top = 56.0
-offset_right = 496.0
-offset_bottom = 94.0
-text = "TESTER"
 
 [node name="HighScoreLabel" type="Label" parent="UserInterface"]
 layout_mode = 1
@@ -207,7 +149,6 @@ offset_right = -11.0
 offset_bottom = 78.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_6wxhg")
 theme_override_font_sizes/font_size = 35
 text = "High Score: 0"
 
