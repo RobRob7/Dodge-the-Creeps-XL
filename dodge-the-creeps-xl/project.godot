@@ -14,6 +14,10 @@ config/name="Dodge the Creeps XL"
 run/main_scene="res://scenes/mainmenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[audio]
+
+general/default_playback_type.web=0
+
 [autoload]
 
 MusicPlayer="*res://scenes/music_player.tscn"
