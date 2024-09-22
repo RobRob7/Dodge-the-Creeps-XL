@@ -188,6 +188,14 @@ theme_override_font_sizes/font_size = 35
 text = "Score: 0"
 script = ExtResource("5_d84xw")
 
+[node name="Label" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 56.0
+offset_right = 496.0
+offset_bottom = 94.0
+text = "TESTER"
+
 [node name="HighScoreLabel" type="Label" parent="UserInterface"]
 layout_mode = 1
 anchors_preset = 1
