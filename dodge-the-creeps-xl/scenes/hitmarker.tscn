@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://t82emtiaa8jb"]
+
+[ext_resource type="AudioStream" uid="uid://c575m3hbardgi" path="res://art/goopy-slime-4-219777.mp3" id="1_nofwo"]
+
+[node name="Hitmarker" type="AudioStreamPlayer"]
+stream = ExtResource("1_nofwo")
+volume_db = -15.0

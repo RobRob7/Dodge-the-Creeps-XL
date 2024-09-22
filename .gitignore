@@ -1,3 +1,6 @@
+# mine
+.tmp
+
 # Godot 4+ specific ignores
 .godot/
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://degc6t4uute5w"]
+
+[ext_resource type="AudioStream" uid="uid://cw0t3omc0kvcn" path="res://art/dramatic-synth-echo-43970.mp3" id="1_x2hen"]
+
+[node name="PlayerDeath" type="AudioStreamPlayer"]
+stream = ExtResource("1_x2hen")
+volume_db = -20.0

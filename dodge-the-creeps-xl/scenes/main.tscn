@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b71ilo00bartu"]
+[gd_scene load_steps=19 format=3 uid="uid://b71ilo00bartu"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2wups"]
 [ext_resource type="PackedScene" uid="uid://du4vwyedmq34w" path="res://scenes/player.tscn" id="1_b7syg"]
 [ext_resource type="PackedScene" uid="uid://cq3w6046tbbdr" path="res://scenes/mob.tscn" id="2_ybhe8"]
 [ext_resource type="FontFile" uid="uid://bagscwojs36q8" path="res://fonts/Montserrat-Medium.ttf" id="4_1ryb0"]
+[ext_resource type="PackedScene" uid="uid://c2xsldxdjdws3" path="res://scenes/wall.tscn" id="4_4a01r"]
 [ext_resource type="Script" path="res://scripts/score_label.gd" id="5_d84xw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbdo2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ul1pp"]
 size = Vector3(60, 2, 60)
@@ -15,6 +18,12 @@ albedo_color = Color(0.346569, 0.346569, 0.346569, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_caqag"]
 material = SubResource("StandardMaterial3D_0tcfh")
 size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejaqq"]
+size = Vector3(30, 1, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d3g67"]
+size = Vector3(30, 1, 24)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slmqj"]
 albedo_color = Color(0.968627, 0.545098, 0, 1)
@@ -33,9 +42,63 @@ point_count = 5
 default_font = ExtResource("4_1ryb0")
 default_font_size = 30
 
+[sub_resource type="FontFile" id="FontFile_bpr4w"]
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_6wxhg"]
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+
 [node name="Main" type="Node"]
 script = ExtResource("1_2wups")
 mob_scene = ExtResource("2_ybhe8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_rbdo2")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
@@ -47,6 +110,19 @@ shape = SubResource("BoxShape3D_ul1pp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_caqag")
+
+[node name="Area3D" type="Area3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/Area3D"]
+shape = SubResource("BoxShape3D_ejaqq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/Area3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_d3g67")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999882, -0.0153743, 0.000645389, 0.0074885, 0.522804, 0.85242, -0.0134428, -0.852314, 0.522857, -1, 15, -1)
@@ -101,14 +177,31 @@ grow_vertical = 2
 theme = SubResource("Theme_mky7e")
 
 [node name="ScoreLabel" type="Label" parent="UserInterface"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 22.0
-offset_right = 109.0
-offset_bottom = 50.0
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 138.0
+offset_bottom = 63.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_bpr4w")
+theme_override_font_sizes/font_size = 35
 text = "Score: 0"
 script = ExtResource("5_d84xw")
+
+[node name="HighScoreLabel" type="Label" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 16.0
+offset_right = -11.0
+offset_bottom = 78.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_6wxhg")
+theme_override_font_sizes/font_size = 35
+text = "High Score: 0"
 
 [node name="Retry" type="ColorRect" parent="UserInterface"]
 layout_mode = 1
@@ -119,7 +212,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="Label" type="Label" parent="UserInterface/Retry"]
+[node name="Retry" type="Label" parent="UserInterface/Retry"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -133,8 +226,49 @@ offset_right = 110.5
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press Enter to Retry"
+text = "Press Enter to Retry
+OR"
+horizontal_alignment = 1
 uppercase = true
 
+[node name="QuitToMain" type="Button" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 42.0
+offset_right = 149.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit To Main Menu"
+
+[node name="Bounds" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" parent="Bounds" instance=ExtResource("4_4a01r")]
+transform = Transform3D(1, 0, 0, 0, 9.81526, 0, 0, 0, 29.6911, -14.1748, -0.950253, -0.99141)
+visible = false
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" parent="Bounds" instance=ExtResource("4_4a01r")]
+transform = Transform3D(1, 0, 0, 0, 9.81526, 0, 0, 0, 30.2567, 14.2076, -0.950253, -0.99141)
+visible = false
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" parent="Bounds" instance=ExtResource("4_4a01r")]
+transform = Transform3D(-4.37114e-08, 0, -28.2198, 0, 9.81526, 0, 1, 0, -1.23352e-06, 0.0859423, -0.950253, -15.6344)
+visible = false
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" parent="Bounds" instance=ExtResource("4_4a01r")]
+transform = Transform3D(-4.37114e-08, 0, -28.2198, 0, 9.81526, 0, 1, 0, -1.23352e-06, 0.0859423, -0.950253, 13.5745)
+visible = false
+skeleton = NodePath("../..")
+
+[connection signal="body_exited" from="Ground/Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="pressed" from="UserInterface/Retry/QuitToMain" to="." method="_on_quit_to_main_pressed"]

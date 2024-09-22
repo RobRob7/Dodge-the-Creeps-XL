@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqwp4pu4kulc"]
+
+[ext_resource type="Script" path="res://scripts/how_to_play.gd" id="1_c73au"]
+[ext_resource type="Texture2D" uid="uid://b4ejnhksrsf3x" path="res://art/arrow_keys.png" id="2_8d1xf"]
+[ext_resource type="Texture2D" uid="uid://b76t85iijxap1" path="res://art/spacebar.png" id="3_g7icy"]
+[ext_resource type="Texture2D" uid="uid://b3ya6yy3x8lsk" path="res://art/mouse.png" id="4_cde12"]
+
+[node name="howtoplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c73au")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.122833, 0.341279, 0.629815, 1)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+offset_left = 112.0
+offset_right = 1112.0
+offset_bottom = 700.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.800001, 1)
+autowrap_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_right = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.800001, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="backtomenu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "I Understand"
+
+[node name="HowToPlay" type="Label" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 40.0
+offset_right = 1234.0
+offset_bottom = 130.0
+scale = Vector2(0.680001, 1)
+theme_override_font_sizes/font_size = 20
+text = "How To Play:
+Your objective is to jump on the creeps to kill them and increase your score. Be on edge, as if a single creep collides with you, the game is over."
+autowrap_mode = 2
+
+[node name="Controls" type="Label" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 184.0
+offset_right = 332.0
+offset_bottom = 233.0
+scale = Vector2(0.680001, 1)
+theme_override_font_sizes/font_size = 20
+autowrap_mode = 1
+
+[node name="Move" type="Label" parent="Controls"]
+layout_mode = 0
+offset_left = -70.5882
+offset_top = 24.0
+offset_right = 307.412
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 20
+text = "To Move:
+- Use the four directional keys or WASD"
+
+[node name="TextureRect" type="TextureRect" parent="Controls/Move"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 502.0
+offset_bottom = 391.0
+scale = Vector2(0.517082, 0.646855)
+texture = ExtResource("2_8d1xf")
+
+[node name="Jump" type="Label" parent="Controls"]
+layout_mode = 0
+offset_left = 423.529
+offset_top = 24.0
+offset_right = 801.529
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 20
+text = "To Jump:
+- Use the space bar or LMB"
+
+[node name="TextureRect" type="TextureRect" parent="Controls/Jump"]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 678.0
+offset_bottom = 399.0
+scale = Vector2(0.594645, 0.325895)
+texture = ExtResource("3_g7icy")
+
+[node name="TextureRect2" type="TextureRect" parent="Controls/Jump"]
+layout_mode = 0
+offset_left = 94.1176
+offset_top = 192.0
+offset_right = 596.118
+offset_bottom = 769.0
+scale = Vector2(0.449499, 0.381877)
+texture = ExtResource("4_cde12")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/backtomenu" to="." method="_on_backtomenu_pressed"]
