@@ -20,8 +20,8 @@ Features
 </h2>
 
 - Player Movement
-    - movement system (all directions in the XY-plane)
-    - jumping system (jump in Y-plane)
+    - Movement system (all directions in the XY-plane)
+    - Jumping system (jump in Y-plane)
 - Scoring system
     - Jump on creeps to score a point
 - Audio
